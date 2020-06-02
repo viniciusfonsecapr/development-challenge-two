@@ -17,10 +17,11 @@ Medcloud's challenge for the general development internship vacancy.
 - AWS API Gateway for managing your REST API.
 
 ## Extra Points
-- Persist the data locally
-- Edit and Delete the patient information
-- Use Material UI Design - https://material-ui.com
-- A cool design
+
+- Cache the data in-browser.
+- Edit and delete operations.
+- Use Material UI - https://material-ui.com.
+- A cool design.
 
 ## References
 
