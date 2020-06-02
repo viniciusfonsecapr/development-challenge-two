@@ -2,17 +2,25 @@
 
 Medcloud's challenge for the general development internship vacancy.
 
-## Problem
+## Goal
 
-We need a website that inserts and list patients in a cloud database.
+- To develop a web application to insert and list patient's information using a cloud database.
 
-## Specifications
+## Required
 
-On the front-end, you MUST use React.
-In the backend, you MUST use:
-  - AWS DynamoDB as database.
-  - AWS Lambda for serverless computing.
-  - AWS API Gateway for managing your REST API.
+- You need to develop both the front-end and the back-end.
+- In the front-end you MUST use React.
+- In the back-end you MUST use the AWS free-tier.
+- The patient data should not be static or local.
+- AWS DynamoDB as database.
+- AWS Lambda for serveless computing.
+- AWS API Gateway for managing your REST API.
+
+## Extra Points
+- Persist the data locally
+- Edit and Delete the patient information
+- Use Material UI Design - https://material-ui.com
+- A cool design
 
 ## References
 
