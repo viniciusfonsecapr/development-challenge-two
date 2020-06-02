@@ -4,22 +4,26 @@ Medcloud's challenge for the general development internship vacancy.
 
 ## Problem
 
-We need a system with a local CRUD and database to manage a collection of patients, and in real-time, replicate the inserts/edits/deletes on a remote database.
+We need a website that inserts and list patients in a cloud database.
 
-## Spec
+## Specifications
 
-To develop the CRUD, you MUST use the web frameworks React and Redux.
-In the cloud, you MUST use the AWS Free Tier for your database and REST API that you will use to interact with your local database.
-Locally, you MUST use Docker to host your database and CRUD.
+On the front-end, you MUST use React.
+In the backend, you MUST use:
+  - AWS DynamoDB as database.
+  - AWS Lambda for serverless computing.
+  - AWS API Gateway for managing your REST API.
 
 ## References
 
-Intro to React: https://reactjs.org/tutorial/tutorial.html
-Getting started with Redux: https://egghead.io/courses/getting-started-with-redux
-DynamoDB with Lambda and API Gateway (you can use AppSync too): https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
+- Intro to React: https://reactjs.org/tutorial/tutorial.html.
+- Core Components of Amazon DynamoDB: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html.
+- Getting Started with DynamoDB: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStartedDynamoDB.html.
+- Getting started with AWS Lambda: https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html.
+- Create a REST API with Lambda integrations in Amazon API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-getting-started-with-rest-apis.html.
 
 ## Delivery
 
-You MUST fork this repository to your own account and push you code to it. When you finish it, you must send a email to cv@medcloud.com.br with your curriculum, fork, DockerHub image and how many time you managed to complete the challenge.
+You MUST fork this repository to your own account and push you code to it. When you finish it, you must send a email to cv@medcloud.com.br with your curriculum, fork and how many time you managed to complete the challenge.
 
 Good luck! Any doubts, feel free to send an email to cv@medcloud.com.br.
