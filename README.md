@@ -12,7 +12,7 @@ Medcloud's challenge for the general development internship vacancy.
 - In the front-end you MUST use React.
 - In the back-end you MUST use the AWS free-tier.
 - The patient data should not be static or local.
-- AWS DynamoDB as database.
+- AWS RDS MySQL or PostgreSQL as database.
 - AWS Lambda for serveless computing.
 - AWS API Gateway for managing your REST API.
 
@@ -22,6 +22,7 @@ Medcloud's challenge for the general development internship vacancy.
 - Edit and delete operations.
 - Use Material UI - https://material-ui.com.
 - A cool design.
+- AWS DynamoDB as database.
 
 ## References
 
@@ -33,6 +34,7 @@ Medcloud's challenge for the general development internship vacancy.
 
 ## Delivery
 
-You MUST fork this repository to your own account and push you code to it. When you finish it, you must send a email to cv@medcloud.com.br with your curriculum, fork and how many time you managed to complete the challenge.
+You MUST fork this repository to your own account and push you code to it. 
+When you finish it, you must send a email to cv@medcloud.com.br with your curriculum, fork and how many time you managed to complete the challenge.
 
 Good luck! Any doubts, feel free to send an email to cv@medcloud.com.br.
