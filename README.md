@@ -1,10 +1,10 @@
 # Development challenge
 
-Medcloud's challenge for the general development internship vacancy.
+Medcloud's challenge for Dev Full Stack.
 
 ## Goal
 
-- To develop a web application to insert and list patient's information using a cloud database.
+- To develop a web application to manage patient registers (Patient's name, birth date, email and address) using a cloud database.
 
 ## Required
 
