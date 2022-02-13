@@ -10,7 +10,7 @@ Medcloud's challenge for Dev Full Stack.
 
 - You need to develop both the front-end and the back-end.
 - In the front-end you MUST use React.
-- In the back-end you MUST use the AWS free-tier.
+- In the back-end you MUST Node.js and AWS free-tier.
 - The patient data should not be static or local.
 - AWS RDS MySQL, PostgreSQL or DynamoDB as database.
 - AWS Lambda for serveless computing.
