@@ -1,6 +1,6 @@
 # Development challenge
 
-![logo medcloud-03 white](https://user-images.githubusercontent.com/46347123/158175920-d7c814b0-5a48-40db-b16e-a368055c07a6.png)
+![logo medcloud-03 white copy](https://user-images.githubusercontent.com/46347123/158176045-de9fefb0-35e2-4515-83ff-c132608aa870.png)
 
 About Medcloud:
 
