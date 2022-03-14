@@ -17,7 +17,7 @@ Medcloud's challenge for Dev Full Stack.
 
 ## Goal
 
-- To develop a web application to manage patient registers (Patient's name, birth date, email and address) using a cloud database.
+- To develop a web application (CRUD) to manage patient registers (Patient's name, birth date, email and address) using a cloud database.
 
 ## Required
 
@@ -25,6 +25,7 @@ Medcloud's challenge for Dev Full Stack.
 - In the front-end you MUST use React.
 - In the back-end you MUST use Node.js and AWS free-tier.
 - The patient data should not be static or local.
+- Field validation (data, required fields, etc)
 - AWS RDS MySQL, PostgreSQL or DynamoDB as database.
 - AWS Lambda for serveless computing.
 - AWS API Gateway for managing your REST API.
@@ -32,7 +33,7 @@ Medcloud's challenge for Dev Full Stack.
 ## Extra Points
 
 - Cache the data in-browser.
-- Edit and delete operations.
+- Pagination
 - Use Material UI - https://material-ui.com.
 - A cool design.
 
@@ -44,9 +45,27 @@ Medcloud's challenge for Dev Full Stack.
 - Getting started with AWS Lambda: https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html.
 - Create a REST API with Lambda integrations in Amazon API Gateway: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-getting-started-with-rest-apis.html.
 
+## What will be evaluated:
+
+- Clean and organized code (naming, etc.)
+- Knowledge of patterns (PSRs, design patterns, SOLID)
+- Be consistent and know how to argue your choices
+- Present solutions you master
+- Data Modeling
+- Code maintainability
+- Error handling
+- Architecture (structuring thought before writing)
+- Affection in decoupling components (other layers, service, repository)
+
+According to the above criteria, we will evaluate your test in order to proceed to the technical interview. If you have not acceptably achieved what we are proposing above, we will not proceed with the process.
+
 ## Delivery
 
 You MUST fork this repository to your own account and push you code to it. 
 When you finish it, you must send a email to cv@medcloud.com.br with your curriculum, fork and how many time you managed to complete the challenge.
 
 Good luck! Any doubts, feel free to send an email to cv@medcloud.com.br.
+
+## For the day of the technical interview and code review
+
+On the date set by the recruiter, have your application running on your local machine to run the tests and to show us the points developed and possible questions. We will do a code review together with you as if you were already on our team, you will be able to explain what you thought, how you architected and how the project can evolve. Good luck!
