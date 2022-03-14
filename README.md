@@ -1,7 +1,8 @@
 # Development challenge
 
+![logo medcloud-03 white](https://user-images.githubusercontent.com/46347123/158175920-d7c814b0-5a48-40db-b16e-a368055c07a6.png)
 
-![logo-medcloud-rd](https://user-images.githubusercontent.com/46347123/158175707-14f59811-ab34-4289-85eb-2c86544fb7c1.png)
+About Medcloud:
 
 We make exams and medical data management more flexible, secure and effective by accelerating the transition from clinics and hospitals to the cloud.
 The RIS and PACS systems have been practically the same for the past 25 years. Interoperability problems, high costs and a lack of understanding about the patient's access to his medical records.
