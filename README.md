@@ -33,7 +33,7 @@ Medcloud's challenge for Dev Full Stack.
 ## Extra Points
 
 - Cache the data in-browser.
-- Pagination
+- Pagination.
 - Use Material UI - https://material-ui.com.
 - A cool design.
 
