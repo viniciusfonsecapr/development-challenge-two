@@ -1,5 +1,17 @@
 # Development challenge
 
+
+![logo-medcloud-rd](https://user-images.githubusercontent.com/46347123/158175707-14f59811-ab34-4289-85eb-2c86544fb7c1.png)
+
+We make exams and medical data management more flexible, secure and effective by accelerating the transition from clinics and hospitals to the cloud.
+The RIS and PACS systems have been practically the same for the past 25 years. Interoperability problems, high costs and a lack of understanding about the patient's access to his medical records.
+
+These points defined limits for the doctor-patient relationship and barriers to radiology workflows. We are revolutionizing this through a Care Coordination based solution that improves workflows for providers and integrates doctors and patients for a better experience.
+
+Since our foundation, almost 10 years ago, we have prioritized excellence in the management of health data, structuring workflows of health professionals, clinics, laboratories and hospitals for assertive and quality diagnostics.
+
+We understand that behind each medical record there is a patient seeking to improve his health and the hope of family members for his well being. After all, we are all patients, and Medcloud's mission is to help you live longer and better. #PatientFirst
+
 Medcloud's challenge for Dev Full Stack.
 
 ## Goal
