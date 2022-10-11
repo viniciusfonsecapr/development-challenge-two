@@ -3,14 +3,16 @@ import React from "react";
 import { Route ,Routes, BrowserRouter } from "react-router-dom";
 
 import Login from "../containers/Login";
-// import Register from "../containers/Register";
+import Register from "../containers/Register";
+import Home from "../containers/Home";
 
 function Rotas() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route element={<Home/>} path="/"></Route>
         <Route element={<Login/>} path="/login"></Route>
-        {/* <Route component={Register} path="/register"></Route> */}
+        <Route element={<Register/>} path="/register"></Route>
       </Routes>
     </BrowserRouter>
   );

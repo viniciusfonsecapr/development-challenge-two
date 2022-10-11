@@ -1,13 +1,12 @@
 import React from "react";
 
 import { Container } from './styles'
+import LoginPage from "../../components/login-page";
 
 function Login() {
     return (
       <Container>
-          <div>
-
-          </div>
+          <LoginPage/>
       </Container>
     );
   }
