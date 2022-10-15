@@ -1,8 +1,9 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom'
+
 
 import { ContainerInicial } from './styles'
-
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -72,20 +73,60 @@ const styledInputRightState = {
 
 function ModalCadastro() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const initialValue = {
+        name: '',
+        date: '',
+        email: '',
+        sex: '',
+        cep: '',
+        city: '',
+        address: '',
+        addressNumber: '',
+        neighbor: '',
+        state: '',
+    }
+
+
+    // const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const navigate = useNavigate();
+    const [users, setUsers] = useState(initialValue);
+    // const [inputName, setInputName] = useState();
+    // const [inputSex, setInputSex] = useState();
+    // const [inputEmail, setInputEmail] = useState();
+    // const [inputDate, setInputDate] = useState();
+    // const [inputAddress, setInputAddress] = useState();
+
+
+    function onChange(e) {
+
+        const { name, value } = e.target;
+
+        setUsers({ ...users, [name]: value });
+    }
+
+    function onSubmitItem(e) {
+        e.preventDefault();
+
+        // axios.post('http://localhost:3005/registration', users)
+        //     .then((response) => {
+        //         navigate.push('/')
+        //     })
+
+    }
+
 
 
     return (
         <ContainerInicial>
             <Stack
                 component="form"
-                onSubmit={handleSubmit(onSubmit)}
-                sx={{display:'flex', mt: 5, ml:'15%', width: '250px' }}
+                onSubmit={onSubmitItem}
+                sx={{ display: 'flex', mt: 5, ml: '15%', width: '250px' }}
 
             >
                 <Button onClick={handleOpen} sx={{ border: '1px solid ', borderRadius: '10px', background: 'white' }}>Cadastrar pacientes</Button>
@@ -97,7 +138,7 @@ function ModalCadastro() {
                 >
                     <Box sx={style}>
 
-                        <Typography id="modal-modal-title" variant="h6" component="h2" sx={{textAlign: 'center', mt: 2 }}>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: 'center', mt: 2 }}>
                             Cadastro de Pacientes
                         </Typography>
                         <Button onClick={handleClose} sx={{ float: 'right', mt: -5 }}>X</Button>
@@ -105,7 +146,7 @@ function ModalCadastro() {
                         {/* CADASTRO DADOS BASICOS */}
                         <Stack sx={{ float: 'left' }}>
                             <InputLabel htmlFor="component-simple" sx={styledInputLabel} style={{ marginTop: '30px' }}>Nome</InputLabel>
-                            <OutlinedInput sx={styledInputLeft}></OutlinedInput>
+                            <OutlinedInput id="name" name="name" sx={styledInputLeft} onChange={onChange}></OutlinedInput>
 
                             <InputLabel htmlFor="component-simple" sx={styledInputLabel}>Sexo</InputLabel>
                             <FormControl>
@@ -115,35 +156,35 @@ function ModalCadastro() {
                                     name="row-radio-buttons-group"
 
                                 >
-                                    <FormControlLabel control={<Radio />} label="F" value="feminimo" sx={{ width: '50px', ml: '5px' }} />
-                                    <FormControlLabel control={<Radio />} label="M" value="masculino" sx={{ width: '50px', ml: '1px' }} />
-                                    <FormControlLabel control={<Radio />} label="Outros" value="outros" sx={{ width: '50px', ml: '1px' }} />
+                                    <FormControlLabel control={<Radio />} id="sex" name="sex" onChange={onChange} label="F" value="feminimo" sx={{ width: '50px', ml: '5px' }} />
+                                    <FormControlLabel control={<Radio />} id="sex" name="sex" onChange={onChange} label="M" value="masculino" sx={{ width: '50px', ml: '1px' }} />
+                                    <FormControlLabel control={<Radio />} id="sex" name="sex" onChange={onChange} label="Outros" value="outros" sx={{ width: '50px', ml: '1px' }} />
                                 </RadioGroup>
                             </FormControl>
 
-                            <InputLabel htmlFor="component-simple" sx={styledInputLabel}>Email</InputLabel>
-                            <OutlinedInput sx={styledInputLeft}></OutlinedInput>
+                            <InputLabel htmlFor="component-simple" type="text" sx={styledInputLabel}>Email</InputLabel>
+                            <OutlinedInput id="email" sx={styledInputLeft} name="email" onChange={onChange}></OutlinedInput>
 
                             <InputLabel htmlFor="component-simple" sx={styledInputLabel}>Data de Nascimento</InputLabel>
-                            <OutlinedInput sx={styledInputLeft}></OutlinedInput>
+                            <OutlinedInput id="date" sx={styledInputLeft} type="number" name="date" onChange={onChange} ></OutlinedInput>
                         </Stack>
                         {/* ENDEREÇO */}
                         <Stack sx={{ float: 'right' }}>
                             <InputLabel htmlFor="component-simple" sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço</InputLabel>
-                            <OutlinedInput sx={styledInputRight} placeholder="CEP" ></OutlinedInput>
-                            <OutlinedInput sx={styledInputRight} placeholder="CIDADE"></OutlinedInput>
-                            <OutlinedInput sx={styledInputRight} placeholder="RUA"></OutlinedInput>
-                            <OutlinedInput sx={styledInputRight} placeholder="NÚMERO"></OutlinedInput>
+                            <OutlinedInput sx={styledInputRight} id="cep" name="cep" type="number" placeholder="CEP" onChange={onChange} ></OutlinedInput>
+                            <OutlinedInput sx={styledInputRight} id="city" name="city" type="text" placeholder="CIDADE" onChange={onChange}></OutlinedInput>
+                            <OutlinedInput sx={styledInputRight} id="address" name="address" type="text" placeholder="RUA" onChange={onChange}></OutlinedInput>
+                            <OutlinedInput sx={styledInputRight} id="addressNumber" name="addressNumber" type="number" placeholder="NÚMERO" onChange={onChange}></OutlinedInput>
                             <Stack sx={{ display: 'flex', flexDirection: 'row' }}>
-                                <OutlinedInput sx={styledInputRightState} placeholder="BAIRRO"></OutlinedInput>
-                                <OutlinedInput sx={styledInputRightState} placeholder="ESTADO"></OutlinedInput>
+                                <OutlinedInput sx={styledInputRightState} id="neighbor" name="neighbor" type="text" placeholder="BAIRRO" onChange={onChange} ></OutlinedInput>
+                                <OutlinedInput sx={styledInputRightState} id="state" name="state" type="text" placeholder="ESTADO" onChange={onChange} ></OutlinedInput>
                             </Stack>
 
 
                         </Stack>
 
                         <Stack sx={{ float: 'right', mt: 2.5, mr: 2.5, width: '210px' }}>
-                            <Button variant="contained">CADASTRAR</Button>
+                            <Button type="submit" variant="contained">CADASTRAR</Button>
                         </Stack>
 
                     </Box>

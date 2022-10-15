@@ -1,18 +1,28 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from 'axios'
+
 import Header from "../header";
 import ModalCadastro from "../modal-registration";
 import InputSearch from '../input-search'
+import CardRegistration from "../card-registration";
 
 import Medico from '../../assets/Medico.webp'
-
 import { ContainerInicial } from './styles'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 
-
 function HomePage() {
+
+
+
+    // useEffect(() => {
+    //     axios.get('http://localhost:3005/registration')
+    //     .then((response) => {
+    //         console.log(response.data)
+    //     });
+    // }, []);
 
 
     return (
@@ -51,6 +61,9 @@ function HomePage() {
                         <Box sx={{display:'flex', flexDirection:'row', ml:12}}>
                             <ModalCadastro></ModalCadastro>
                             <InputSearch></InputSearch>
+                        </Box>
+                        <Box>
+                            <CardRegistration users=""/>
                         </Box>
 
                     </Container>
