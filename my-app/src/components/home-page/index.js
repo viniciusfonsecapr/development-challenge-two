@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios'
 
 import Header from "../header";
@@ -15,14 +15,16 @@ import Typography from '@mui/material/Typography';
 
 function HomePage() {
 
+    const [data, setData] = useState()
 
 
-    // useEffect(() => {
-    //     axios.get('http://localhost:3005/registration')
-    //     .then((response) => {
-    //         console.log(response.data)
-    //     });
-    // }, []);
+    useEffect(() => {
+        axios.get('https://qdin0cvtqe.execute-api.us-east-1.amazonaws.com/v1/users')
+            .then((response) => {
+                setData(response.data)
+                console.log(response.data)
+            });
+    }, []);
 
 
     return (
@@ -58,13 +60,14 @@ function HomePage() {
                         background: 'linear-gradient(127.73deg, rgba(244, 245, 255, 0.8) 0%, rgba(247, 247, 255, 0.75) 0.01%, rgba(255, 255, 255, 0.464) 29.92%, rgba(244, 244, 244, 0.736) 59.68%, rgba(225, 226, 238, 0.56) 78.69%, rgba(234, 235, 247, 0) 98.85%);'
                     }}>
                         <Typography sx={{ display: 'block', textAlign: 'center', mt: 3, fontSize: 25, fontWeight: 'semibold' }}>Pacientes</Typography>
-                        <Box sx={{display:'flex', flexDirection:'row', ml:12}}>
+                        <Box sx={{ display: 'flex', flexDirection: 'row', ml: 12 }}>
                             <ModalCadastro></ModalCadastro>
                             <InputSearch></InputSearch>
                         </Box>
                         <Box>
-                            <CardRegistration users=""/>
+                            <CardRegistration data={data} />
                         </Box>
+
 
                     </Container>
 
