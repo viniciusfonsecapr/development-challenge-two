@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack'
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import CloseIcon from '@mui/icons-material/Close';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 
 const style = {
@@ -20,8 +21,7 @@ const style = {
     width: 550,
     height: 400,
     bgcolor: 'background.paper',
-    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)',
-    boxShadow: 24,
+    boxShadow: '0px 12px 32px rgba(43, 68, 106, 0.12)',
     p: 4,
 };
 
@@ -67,7 +67,7 @@ function ModalCadastro() {
         <ContainerInicial>
             <Stack sx={{ display: 'flex', mt: 5, width: '200px' }}>
                 <form>
-                    <Button onClick={handleOpen} sx={{ border: '1px solid ', width:'300px',borderRadius: '10px', background: 'white' }}>Cadastrar pacientes</Button>
+                    <Button onClick={handleOpen} sx={{ border: '1px solid ', width:'300px',borderRadius: '10px', background: 'white' }}><HowToRegIcon sx={{mr:3}}/> Cadastrar</Button>
                     <Modal
                         open={open}
                         onClose={handleClose}
