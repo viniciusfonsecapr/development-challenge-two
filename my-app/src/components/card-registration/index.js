@@ -1,6 +1,12 @@
 import React from "react";
 
 import { ContainerInicial } from './styles'
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 
 const paddingItems = {
@@ -14,15 +20,26 @@ function CardRegistration({ users }) {
     return (
         <>
             <ContainerInicial style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }} >
-                {users && users.map((user) => (
+
+
+                 {users &&  users.map((user) => (
                     <div key={user.id} style={{ width: '330px', padding: '25px', marginTop: '4%', marginLeft: '3%', backgroundColor: '#fff',boxShadow: '0px 40px 160px rgba(55, 76, 108, 0.24)' ,borderRadius: '12px' }}>
-                        <h3 >{user.name}</h3>
-                        <p style={paddingItems}>Data de Nascimento: {user.date_birth}</p>
-                        <p style={paddingItems}>Email: {user.email}</p>
-                        <p style={paddingItems}>Endereço: {user.address}</p>
-                        <button>Editar</button> <button>Lixeira</button>
+                        <Typography variant="h5" sx={{fontWeight:'bold'}} >{user.name}</Typography>
+                        <Typography style={paddingItems}>Data de Nascimento: {user.date_birth}</Typography>
+                        <Typography style={paddingItems}>Email: {user.email}</Typography>
+                        <Typography style={paddingItems}>Endereço: {user.address}</Typography>
+                        <Box sx={{float:'right',mt:10}}>
+                           <Button sx={{mr:1}}>
+                               <EditIcon/>
+                            </Button>
+                            <Button>
+                                <DeleteIcon/>
+                            </Button>
+                        </Box>
+                        
                     </div>
-                ))}
+                ) 
+                )} 
             </ContainerInicial >
 
         </>
