@@ -39,22 +39,13 @@ function CardRegistration() {
             })
             const newUsers = users.filter(users => users.id !== id)
             setUsers(newUsers)
+            toast.success("Paciente deletado com sucesso")
         } catch (error) {
+            toast.error("Consulte o suporte")
             console.log(error)
         }
     }
 
-
-    // const deleteUser = async () => {
-    //     const resp  = await api.delete(`users/${users.id}`).then(() => refreshPage())
-    //     const { data } = resp;
-    //     toast.success(`Paciente ${users.id} deletado`)
-
-    // }
-
-    // function refreshPage() {
-    //     window.location.reload();
-    // }
 
     return (
         <>
