@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import { api } from '../../services/api'
 
 import Header from "../header";
 import ModalCadastro from "../modal-registration";
 import CardRegistration from "../card-registration";
-
 import Medico from '../../assets/Medico.webp'
 import { ContainerInicial } from './styles'
 import Container from '@mui/material/Container'
@@ -19,7 +18,7 @@ function HomePage() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        axios.get('https://qdin0cvtqe.execute-api.us-east-1.amazonaws.com/users')
+        api.get('users')
             .then((response) => {
                 setUsers(response.data.Items)
 
@@ -59,7 +58,7 @@ function HomePage() {
                     <Container sx={{
                         mt: 12,
                         width: '100%',
-                        height: '100%',
+                        minHeight: '100vh',
                         borderRadius: '15px',
                         border: '0.2px solid rgba(0, 0, 0, 0.15)',
                         background: 'linear-gradient(127.73deg, rgba(244, 245, 255, 0.8) 0%, rgba(247, 247, 255, 0.75) 0.01%, rgba(255, 255, 255, 0.464) 29.92%, rgba(244, 244, 244, 0.736) 59.68%, rgba(225, 226, 238, 0.56) 78.69%, rgba(234, 235, 247, 0) 98.85%);'
