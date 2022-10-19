@@ -5,7 +5,7 @@ export const api = axios.create({
 });
 
 export const deleteUser = async (id) => {
-    const response = await api.delete(`/users/${id}`)
+    const response = await api.delete(`users/${id}`)
     return response;
 }
 

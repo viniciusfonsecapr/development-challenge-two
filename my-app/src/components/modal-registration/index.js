@@ -92,10 +92,16 @@ function ModalCadastro() {
 
    
     const navigateToSucess = async (body) => {
-        const resp  = await api.post('users', body).then(() => refreshPage())
-        const { data } = resp;
-        toast.success(`Paciente ${body.name} cadastrado`)
         
+        try {
+            const resp  = await api.post('users', body).then(() => refreshPage())
+            const { data } = resp;
+            toast.success(`Paciente ${body.name} cadastrado`)
+            handleClose()    
+        } catch (error) {
+            toast.error(`Servidor Offiline`)
+        }
+    
     }
 
     function refreshPage() {

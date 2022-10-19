@@ -64,19 +64,15 @@ function HomePage() {
                         background: 'linear-gradient(127.73deg, rgba(244, 245, 255, 0.8) 0%, rgba(247, 247, 255, 0.75) 0.01%, rgba(255, 255, 255, 0.464) 29.92%, rgba(244, 244, 244, 0.736) 59.68%, rgba(225, 226, 238, 0.56) 78.69%, rgba(234, 235, 247, 0) 98.85%);'
                     }}>
                         <Typography sx={{ textAlign: 'left', mt: 4, ml: '4%', fontSize: 25, fontWeight: 'bold' }}>Cadastrar Pacientes</Typography>
-                        {users &&
                             <Box id="Box-ButtonAdd" sx={{ display: 'flex', flexDirection: 'row', ml: '4%' }}>
                                 <ModalCadastro></ModalCadastro>
                                 <Button style={{marginLeft:'15%', marginTop:'4%', background:'#fff', border:'1px solid' , borderRadius:'10px'}} type="button" onClick={refreshPage}> <ReplayIcon /> </Button>
                             </Box>
-                        }
                         <Box id="CardPacients">
-                            <CardRegistration users={users} />
+                            <CardRegistration users={users}/>
                         </Box>
                     </Container>
-
                 </Box>
-
             </Container >
         </ContainerInicial >
     );
