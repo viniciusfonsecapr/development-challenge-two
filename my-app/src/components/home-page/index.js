@@ -17,13 +17,17 @@ function HomePage() {
 
     const [users, setUsers] = useState([])
 
-    useEffect(() => {
-        api.get('users')
-            .then((response) => {
-                setUsers(response.data.Items)
-
-            });
+    useEffect((id) => {
+        api.get(`users/`, {
+            data: {
+                id
+            }
+        })
+            const newUsers = users.filter(users => users.id !== id)
+            setUsers(newUsers)
     }, []);
+
+   
 
     function refreshPage() {
         window.location.reload();
