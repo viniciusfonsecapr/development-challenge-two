@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { api } from '../../services/api'
@@ -94,15 +94,20 @@ function ModalCadastro() {
     const navigateToSucess = async (body) => {
         
         try {
-            const resp  = await api.post('users', body) 
+            const resp  = await api.post('users', body).then(() => setTimeout(refreshPage, 3000))
             const { data } = resp;
-            toast.success(`Paciente ${body.name} cadastrado`)   
+            toast.success(`Paciente ${body.name} cadastrado`) 
+            
         } catch (error) {
             toast.error(`Servidor Offiline`)
         }
-    
-    }
 
+    }
+    
+    function refreshPage() {
+        window.location.reload();
+    }
+    
 
     return (
         <ContainerInicial>
