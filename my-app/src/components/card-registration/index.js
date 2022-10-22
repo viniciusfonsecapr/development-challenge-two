@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef} from "react";
 import { api } from '../../services/api'
 import { toast } from 'react-toastify'
-import { Formik } from "formik";
 import * as Yup from "yup";
 
 import { ContainerInicial } from './styles'
@@ -69,10 +68,19 @@ function CardRegistration() {
 
     const [users, setUsers] = useState([])
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [userEdit, setUserEdit] = useState([])
 
+    const inputName = useRef()
+    const inputEmail = useRef()
+    const inputAddress= useRef()
+    const inputDateBirth = useRef()
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = (user) => {
+        setOpen(true);
+        setUserEdit(user)
+    }
+    const handleClose = () => setOpen(false);
 
 
     const validEmailMsg = 'Campo obrigatório';
@@ -91,6 +99,8 @@ function CardRegistration() {
     });
 
 
+
+
     useEffect(() => {
         api.get('users')
             .then((response) => {
@@ -98,7 +108,6 @@ function CardRegistration() {
 
             });
     }, []);
-
 
     async function deletePacients(id) {
         try {
@@ -117,26 +126,30 @@ function CardRegistration() {
     }
 
     const putToSucess = async (body) => {
+        
         try {
-            const resp  = await api.put('users', body).then(() => setTimeout(refreshPage, 3000))
+            const resp  = await api.put('users', body)
             const { data } = resp;
             toast.success(`Paciente ${body.name} cadastrado`) 
             
         } catch (error) {
             toast.error(`Servidor Offiline`)
         }
+
     }
-    
     function refreshPage() {
         window.location.reload();
     }
+    function clickHandler(e) {
+        setUserEdit(e.target.value)
+      }
 
-
+    
 
     return (
         <>
             <ContainerInicial style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }} >
-                {users.map((user) => (
+                {users.map((user, index) => (
                     <div key={user.id} style={{ width: '330px', height: '250px', padding: '25px', marginTop: '4%', marginLeft: '3%', backgroundColor: '#fff', boxShadow: '0px 40px 160px rgba(55, 76, 108, 0.24)', borderRadius: '12px' }}>
                         <Typography variant="h5" sx={{ fontWeight: 'bold' }} >{user.name}</Typography>
                         <Typography style={paddingItems}>Data de Nascimento: {user.date_birth}</Typography>
@@ -144,72 +157,7 @@ function CardRegistration() {
                         <Typography style={paddingItems}>Endereço: {user.address}</Typography>
                         <Box sx={{ display: 'flex', flexDirectionmn: 'row', justifyContent: 'space-evenly', mt: 1 }}>
 
-                            <Formik initialValues={user}
-                                onSubmit={putToSucess} validationSchema={validationSchema}>
-                                {({
-                                    values,
-                                    errors,
-                                    touched,
-                                    handleChange,
-                                    handleBlur,
-                                    handleSubmit,
-                                }) => (
-                                    <>
-                                        <form>
-                                            <Button onClick={handleOpen} sx={{ mr: 1 }}> <EditIcon /></Button>
-
-                                            <Modal
-                                                open={open}
-                                                onClose={handleClose}
-                                                aria-labelledby="modal-modal-title"
-                                                aria-describedby="modal-modal-description"
-                                            >
-                                                <Box sx={style}>
-
-                                                    <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: 'center', mt: 1 }}>
-                                                        Editar Paciente
-                                                    </Typography>
-                                                    <Button onClick={handleClose} sx={{ float: 'right', mt: -5 }}><CloseIcon /></Button>
-
-                                                    <Stack sx={{ float: 'left' }}>
-                                                        <InputLabel htmlFor="component-simple" error={!!errors.name} sx={styledInputLabel} style={{ marginTop: '30px' }}>Nome *</InputLabel>
-                                                        <OutlinedInput name="name" onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            error={!!errors.name}
-                                                            value={values.name} type="text"
-                                                            sx={styledInputLeft}></OutlinedInput>
-                                                        <InputLabel htmlFor="component-simple" error={!!errors.email} type="email" sx={styledInputLabel}>Email *</InputLabel>
-                                                        <OutlinedInput type="email" name="email" onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            error={!!errors.email}
-                                                            value={values.email} sx={styledInputLeft}></OutlinedInput>
-                                                        <InputLabel htmlFor="component-simple" error={!!errors.date_birth} sx={styledInputLabel}>Data de Nascimento *</InputLabel>
-                                                        <OutlinedInput name="date_birth" onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            error={!!errors.date_birth}
-                                                            value={values.date_birth} sx={styledInputLeft} type='date' ></OutlinedInput>
-                                                    </Stack>
-                                                    <Stack sx={{ float: 'right' }}>
-                                                        <InputLabel htmlFor="component-simple" error={!!errors.address} sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço *</InputLabel>
-                                                        <OutlinedInput name="address" onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            value={values.address}
-                                                            error={!!errors.address}
-                                                            sx={styledInputRight} placeholder="ex: Rua Jorge Mansos" >
-                                                        </OutlinedInput>
-                                                    </Stack>
-
-                                                    <Stack sx={{ float: 'right', mt: 2, mr: 0.6, width: '210px' }}>
-                                                        <Button
-                                                            type="submit" onClick={handleSubmit} variant="contained">Editar
-                                                        </Button>
-                                                    </Stack>
-                                                </Box>
-                                            </Modal>
-                                        </form>
-                                    </>
-                                )}
-                            </Formik>
+                            <Button onClick={() => handleOpen(user)} sx={{ mr: 1 }}> <EditIcon /></Button>
 
                             <Button>
                                 <DeleteIcon onClick={() => deletePacients(user.id)} />
@@ -218,10 +166,58 @@ function CardRegistration() {
                     </div>
                 )
                 )}
-            </ContainerInicial >
 
+            </ContainerInicial >
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <form>
+                        <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: 'center', mt: 1 }}>
+                        Editar Paciente
+                    </Typography>
+                    <Button onClick={handleClose} sx={{ float: 'right', mt: -5 }}><CloseIcon /></Button>
+
+                    <Stack sx={{ float: 'left' }}>
+                        <InputLabel htmlFor="component-simple" sx={styledInputLabel} style={{ marginTop: '30px' }}>Nome *</InputLabel>
+                        <OutlinedInput name="name" ref={inputName} onChange={clickHandler}
+                            value={userEdit.name} type="text"
+                            sx={styledInputLeft}></OutlinedInput>
+                        <InputLabel htmlFor="component-simple" type="email" sx={styledInputLabel}>Email *</InputLabel>
+                        <OutlinedInput type="email" name="email"
+                            ref={inputEmail}
+                            value={userEdit.email} sx={styledInputLeft}></OutlinedInput>
+                        <InputLabel htmlFor="component-simple" sx={styledInputLabel}>Data de Nascimento *</InputLabel>
+                        <OutlinedInput name="date_birth"
+                            ref={inputDateBirth}
+                            value={userEdit.date_birth} sx={styledInputLeft} type='date' ></OutlinedInput>
+                    </Stack>
+                    <Stack sx={{ float: 'right' }}>
+                        <InputLabel htmlFor="component-simple" sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço *</InputLabel>
+                        <OutlinedInput name="address"
+                            value={userEdit.address}
+                            ref={inputAddress}
+                            sx={styledInputRight} placeholder="ex: Rua Jorge Mansos" >
+                        </OutlinedInput>
+                    </Stack>
+
+                    <Stack sx={{ float: 'right', mt: 2, mr: 0.6, width: '210px' }}>
+                        <Button
+                            type="submit" onClick={putToSucess} variant="contained">Editar
+                        </Button>
+                    </Stack>
+                    </form>
+                    
+                </Box>
+            </Modal>
         </>
     );
 }
 
 export default CardRegistration;
+
+
+
