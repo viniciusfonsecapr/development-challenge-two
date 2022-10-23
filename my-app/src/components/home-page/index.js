@@ -15,19 +15,6 @@ import ReplayIcon from '@mui/icons-material/Replay';
 
 function HomePage() {
 
-    const [users, setUsers] = useState([])
-
-    useEffect((id) => {
-        api.get(`users`, {
-            data: {
-                id
-            }
-        })
-        const newUsers = users.filter(users => users.id !== id)
-        setUsers(newUsers)
-    }, []);
-
-
 
     function refreshPage() {
         window.location.reload();
@@ -73,7 +60,7 @@ function HomePage() {
                             <Button style={{ marginLeft: '15%', marginTop: '4%', background: '#fff', border: '1px solid', borderRadius: '10px' }} type="button" onClick={refreshPage}> <ReplayIcon /> </Button>
                         </Box>
                         <Box id="CardPacients">
-                            <CardRegistration users={users} />
+                            <CardRegistration/>
                         </Box>
                     </Container>
                 </Box>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { api } from '../../services/api'
 import { toast } from 'react-toastify'
 import * as Yup from "yup";
@@ -72,7 +72,7 @@ function CardRegistration() {
 
     const inputName = useRef()
     const inputEmail = useRef()
-    const inputAddress= useRef()
+    const inputAddress = useRef()
     const inputDateBirth = useRef()
 
     const [open, setOpen] = React.useState(false);
@@ -99,8 +99,6 @@ function CardRegistration() {
     });
 
 
-
-
     useEffect(() => {
         api.get('users')
             .then((response) => {
@@ -125,26 +123,39 @@ function CardRegistration() {
         }
     }
 
-    const putToSucess = async (body) => {
-        
+
+
+    const putToSucess = async (e) => {
+        e.preventDefault()
+
+        const body = {
+            id: userEdit.id,
+            name: inputName.current.value,
+            email: inputEmail.current.value,
+            address: inputAddress.current.value,
+            date_birth: inputDateBirth.current.value,
+        }
+        console.log(body)
         try {
-            const resp  = await api.put('users', body)
-            const { data } = resp;
-            toast.success(`Paciente ${body.name} cadastrado`) 
-            
+            console.log(body)
+            await api.put(`users`, body)
+            toast.success(`Paciente ${body.name} Editado`)
+
         } catch (error) {
             toast.error(`Servidor Offiline`)
         }
 
     }
-    function refreshPage() {
-        window.location.reload();
-    }
-    function clickHandler(e) {
-        setUserEdit(e.target.value)
-      }
 
-    
+
+    function clickHandler(e) {
+        setUserEdit((prevValues) => ({
+            ...prevValues,
+            [e.target.id]: e.target.value,
+          }))
+    }
+
+
 
     return (
         <>
@@ -156,9 +167,7 @@ function CardRegistration() {
                         <Typography style={paddingItems}>Email: {user.email}</Typography>
                         <Typography style={paddingItems}>Endereço: {user.address}</Typography>
                         <Box sx={{ display: 'flex', flexDirectionmn: 'row', justifyContent: 'space-evenly', mt: 1 }}>
-
                             <Button onClick={() => handleOpen(user)} sx={{ mr: 1 }}> <EditIcon /></Button>
-
                             <Button>
                                 <DeleteIcon onClick={() => deletePacients(user.id)} />
                             </Button>
@@ -174,43 +183,43 @@ function CardRegistration() {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
-                    <form>
+                <Box sx={style} >
+                    <form onSubmit={putToSucess}>
                         <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: 'center', mt: 1 }}>
-                        Editar Paciente
-                    </Typography>
-                    <Button onClick={handleClose} sx={{ float: 'right', mt: -5 }}><CloseIcon /></Button>
+                            Editar Paciente
+                        </Typography>
+                        <Button onClick={handleClose} sx={{ float: 'right', mt: -5 }}><CloseIcon /></Button>
 
-                    <Stack sx={{ float: 'left' }}>
-                        <InputLabel htmlFor="component-simple" sx={styledInputLabel} style={{ marginTop: '30px' }}>Nome *</InputLabel>
-                        <OutlinedInput name="name" ref={inputName} onChange={clickHandler}
-                            value={userEdit.name} type="text"
-                            sx={styledInputLeft}></OutlinedInput>
-                        <InputLabel htmlFor="component-simple" type="email" sx={styledInputLabel}>Email *</InputLabel>
-                        <OutlinedInput type="email" name="email"
-                            ref={inputEmail}
-                            value={userEdit.email} sx={styledInputLeft}></OutlinedInput>
-                        <InputLabel htmlFor="component-simple" sx={styledInputLabel}>Data de Nascimento *</InputLabel>
-                        <OutlinedInput name="date_birth"
-                            ref={inputDateBirth}
-                            value={userEdit.date_birth} sx={styledInputLeft} type='date' ></OutlinedInput>
-                    </Stack>
-                    <Stack sx={{ float: 'right' }}>
-                        <InputLabel htmlFor="component-simple" sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço *</InputLabel>
-                        <OutlinedInput name="address"
-                            value={userEdit.address}
-                            ref={inputAddress}
-                            sx={styledInputRight} placeholder="ex: Rua Jorge Mansos" >
-                        </OutlinedInput>
-                    </Stack>
+                        <Stack sx={{ float: 'left' }}>
+                            <InputLabel htmlFor="component-simple" sx={styledInputLabel} style={{ marginTop: '30px' }}>Nome *</InputLabel>
+                            <OutlinedInput name="name" inputRef={inputName} onChange={clickHandler}
+                                defaultValue={userEdit.name} type="text"
+                                sx={styledInputLeft}></OutlinedInput>
+                            <InputLabel htmlFor="component-simple" type="email" sx={styledInputLabel}>Email *</InputLabel>
+                            <OutlinedInput type="email" name="email" onChange={clickHandler}
+                                inputRef={inputEmail}
+                                defaultValue={userEdit.email} sx={styledInputLeft}></OutlinedInput>
+                            <InputLabel htmlFor="component-simple" sx={styledInputLabel}>Data de Nascimento *</InputLabel>
+                            <OutlinedInput name="date_birth" onChange={clickHandler}
+                                inputRef={inputDateBirth}
+                                defaultValue={userEdit.date_birth} sx={styledInputLeft} type='date' ></OutlinedInput>
+                        </Stack>
+                        <Stack sx={{ float: 'right' }}>
+                            <InputLabel htmlFor="component-simple" sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço *</InputLabel>
+                            <OutlinedInput name="address" onChange={clickHandler}
+                                defaultValue={userEdit.address}
+                                inputRef={inputAddress}
+                                sx={styledInputRight} placeholder="ex: Rua Jorge Mansos" >
+                            </OutlinedInput>
+                        </Stack>
 
-                    <Stack sx={{ float: 'right', mt: 2, mr: 0.6, width: '210px' }}>
-                        <Button
-                            type="submit" onClick={putToSucess} variant="contained">Editar
-                        </Button>
-                    </Stack>
+                        <Stack sx={{ float: 'right', mt: 2, mr: 0.6, width: '210px' }}>
+                            <Button
+                                type="submit" variant="contained">Editar
+                            </Button >
+                        </Stack>
                     </form>
-                    
+
                 </Box>
             </Modal>
         </>
