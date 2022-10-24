@@ -61,7 +61,7 @@ const styledInputLabel = {
 }
 
 
-function ModalCadastro() {
+function ModalRegisterPacient() {
 
 
     const [open, setOpen] = React.useState(false);
@@ -199,7 +199,7 @@ function ModalCadastro() {
     );
 }
 
-export default ModalCadastro;
+export default ModalRegisterPacient;
 
 
 

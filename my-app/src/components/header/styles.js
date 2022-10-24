@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-position:fixed;
+position:absolute;
 font-family: 'Roboto Mono', monospace;
 width: 100%;
 height: 60px;
 background: rgba(255, 255, 255, 1.94);
 
-
 #button {
     margin-top:-10px;
+
 }
+
 @media screen and (min-width: 330px) and (max-width: 400px) {
 	width: 400px;
    
@@ -35,6 +36,39 @@ background: rgba(255, 255, 255, 1.94);
 }
 
 @media screen and (min-width: 330px) {
+
+    #home  {
+        margin-bottom:10px;
+    }
+    #about  {
+        margin-bottom:10px;
+    }
+
+    #home:hover  {
+        border-bottom:3px solid #0E20BB;
+    }
+    #about:hover  {
+        border-bottom:3px solid #0E20BB;
+    }
+
+    #button:hover {
+        background-color:#0E20BB ;
+    }
+
+    #button {
+        margin-bottom:10px;
+    }
+
+
+
+}
+
+@media screen and (min-width: 1430px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+
     #home  {
         margin-bottom:10px;
     }
