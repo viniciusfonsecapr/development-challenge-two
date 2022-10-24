@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { api } from '../../services/api'
 import { toast } from 'react-toastify'
-import * as Yup from "yup";
+// import * as Yup from "yup";
 
 import { ContainerBase, ContainerInicial } from './styles'
 import './styles-modal.css'
@@ -87,20 +87,20 @@ function CardRegistration() {
     const handleClose = () => setOpen(false);
 
 
-    const validEmailMsg = 'Campo obrigatório';
-    const requiredField = 'Campo obrigatório';
+    // const validEmailMsg = 'Campo obrigatório';
+    // const requiredField = 'Campo obrigatório';
 
-    const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .email(validEmailMsg)
-            .required(validEmailMsg),
-        name: Yup.string()
-            .required(requiredField),
-        date_birth: Yup.date()
-            .required(requiredField),
-        address: Yup.string()
-            .required(requiredField),
-    });
+    // const validationSchema = Yup.object().shape({
+    //     email: Yup.string()
+    //         .email(validEmailMsg)
+    //         .required(validEmailMsg),
+    //     name: Yup.string()
+    //         .required(requiredField),
+    //     date_birth: Yup.date()
+    //         .required(requiredField),
+    //     address: Yup.string()
+    //         .required(requiredField),
+    // });
 
 
     useEffect(() => {
