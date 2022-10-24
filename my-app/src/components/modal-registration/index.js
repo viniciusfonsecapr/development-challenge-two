@@ -149,11 +149,6 @@ function ModalCadastro() {
                                                 onBlur={handleBlur}
                                                 error={!!errors.email}
                                                 value={values.email} sx={styledInputLeft}></OutlinedInput>
-                                            <InputLabel htmlFor="component-simple" error={!!errors.date_birth} sx={styledInputLabel}>Data de Nascimento *</InputLabel>
-                                            <OutlinedInput name="date_birth" onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                error={!!errors.date_birth}
-                                                value={values.date_birth} sx={styledInputLeft} type='date' ></OutlinedInput>
                                         </Stack>
                                         <Stack sx={{ float: 'right' }}>
                                             <InputLabel htmlFor="component-simple" error={!!errors.address} sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço *</InputLabel>
@@ -163,9 +158,14 @@ function ModalCadastro() {
                                                 error={!!errors.address}
                                                 sx={styledInputRight} placeholder="ex: Rua Jorge Mansos" >
                                             </OutlinedInput>
+                                            <InputLabel htmlFor="component-simple" error={!!errors.date_birth} sx={styledInputLabel}>Data de Nascimento *</InputLabel>
+                                            <OutlinedInput name="date_birth" onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                error={!!errors.date_birth}
+                                                value={values.date_birth} sx={styledInputRight} type='date' ></OutlinedInput>
                                         </Stack>
 
-                                        <Stack sx={{ float: 'right', mt: 2, mr: 0.6, width: '210px' }}>
+                                        <Stack sx={{ml:15,pt: 3, width: '250px', height:'50px' }}>
                                             <Button
                                                 type="submit" onClick={handleSubmit} variant="contained">Cadastrar
                                             </Button>

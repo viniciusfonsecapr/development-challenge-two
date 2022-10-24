@@ -13,27 +13,28 @@ function Header() {
     return (
         <Container>
             <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                <img src={Logo} alt="logo" style={{ width: '140px', marginLeft: '40px' }}></img>
-                <Box sx={{ width: '500px', marginTop: '20px', marginLeft:'20%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignContent:'center', }}>
-                    <Link href="#" underline="none" sx={{ color: 'black' }}>
+                <img src={Logo} alt="logo" style={{ width: '120px', marginLeft: '40px' }}></img>
+                <Box sx={{ width: '500px', marginTop: '20px', marginLeft: '20%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignContent: 'center', }}>
+                    <Link href="#" id="home" underline="none" sx={{ color: 'black' }}>
                         HOME
                     </Link>
-                    <Link href="#" underline="none" sx={{ color: 'black' }}>
+                    <Link href="https://github.com/medcloudbr/development-challenge-two" target="_blank" id="about" underline="none" sx={{ color: 'black' }}>
                         About
                     </Link>
-                    <Button sx={{
+                    <Button id="button" href="https://github.com/viniciusfonsecapr" target="_blank" sx={{
                         marginTop: '-10px',
                         width: '130px',
                         height: '40px',
                         background: '#0E20FF',
-                        color:'white',
+                        color: 'white',
                         border: '1px solid rgba(0, 0, 0, 0.15)',
                         boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                        borderRadius: '20px'}}>Github <GitHubIcon sx={{marginLeft:'5px'}}/>
+                        borderRadius: '20px'
+                    }}>Github <GitHubIcon sx={{ marginLeft: '5px' }} />
                     </Button>
-            </Box>
+                </Box>
 
-        </Box>
+            </Box>
         </Container >
     );
 }
