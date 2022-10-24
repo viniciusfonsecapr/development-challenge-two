@@ -186,11 +186,9 @@ function CardAndEdit() {
                         users.map((user, index) => (
                             <div key={index} id="card-style">
                                 <Stack id="user-line">
-                                <AccountCircleIcon color="primary" fontSize="large"></AccountCircleIcon>
-                                <Typography id="card-name" variant="h5" sx={{ fontWeight: 'bold' }} >{user.name}</Typography>
+                                    <AccountCircleIcon color="primary" fontSize="large"></AccountCircleIcon>
+                                    <Typography id="card-name" variant="h5" sx={{ fontWeight: 'bold' }} >{user.name}</Typography>
                                 </Stack>
-                                
-                               
                                 <Typography className="card-infos" >Data de Nascimento: {format(new Date(user.date_birth), 'dd/MM/yyyy')} </Typography>
                                 <Typography className="card-infos" >Email: {user.email}</Typography>
                                 <Typography className="card-infos" >Endereço: {user.address}</Typography>

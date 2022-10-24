@@ -11,6 +11,12 @@ export const ContainerInicial = styled.div`
   width: 100%;
   min-height: 100vh;
 
+  #three-container{
+        display:flex;
+        justify-content:left;
+        flex-direction: column;
+      }
+
   @media screen and (min-width: 300px) and (max-width: 550px) {
     #image-medic {
       position: relative;
@@ -24,6 +30,7 @@ export const ContainerInicial = styled.div`
       margin-top: 20px;
       display: block;
 
+  
       #text {
         font-size: 18px;
         text-align: center;
