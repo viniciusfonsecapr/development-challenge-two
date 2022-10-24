@@ -22,7 +22,7 @@ function Header() {
                         About
                     </Link>
                     <Button id="button" href="https://github.com/viniciusfonsecapr" target="_blank" sx={{
-                        marginTop: '-10px',
+                        marginBottom:'20px',
                         width: '130px',
                         height: '40px',
                         background: '#0E20FF',

@@ -5,11 +5,14 @@ position:fixed;
 font-family: 'Roboto Mono', monospace;
 width: 100%;
 height: 60px;
-background: linear-gradient(90.09deg, rgba(255, 255, 255, 0.94) 10.93%, rgba(255, 255, 255, 0.946452) 41.9%, rgba(255, 255, 255, 0.429492) 68.72%, rgba(255, 255, 255, 0.94) 99.7%);
-border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+background: rgba(255, 255, 255, 1.94);
 
+
+#button {
+    margin-top:-10px;
+}
 @media screen and (min-width: 330px) and (max-width: 400px) {
-	width: 250px;
+	width: 400px;
    
     #home  {
         display:none;
@@ -19,6 +22,11 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     #button:hover {
         background-color:#0E20BB ;
+    }
+
+    #button {
+      margin-left: -70px;
+      margin-top:-10px;
     }
 
     img {

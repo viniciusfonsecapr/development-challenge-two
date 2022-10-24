@@ -90,6 +90,8 @@ function ModalCadastro() {
             .required(requiredField),
     });
 
+    
+
    
     const navigateToSucess = async (body) => {
         
@@ -97,6 +99,7 @@ function ModalCadastro() {
             const resp  = await api.post('users', body).then(() => setTimeout(refreshPage, 3000))
             const { data } = resp;
             toast.success(`Paciente ${body.name} cadastrado`) 
+            handleClose()
             
         } catch (error) {
             toast.error(`Servidor Offiline`)
