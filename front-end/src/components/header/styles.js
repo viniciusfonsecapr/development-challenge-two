@@ -11,7 +11,7 @@ export const Container = styled.div`
     margin-top: -10px;
   }
 
-  @media screen and (min-width: 330px) and (max-width: 400px) {
+  @media screen and (min-width: 330px) and (max-width: 520px) {
     width: 400px;
 
     #home {

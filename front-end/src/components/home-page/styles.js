@@ -51,13 +51,12 @@ export const ContainerInicial = styled.div`
 
   ///// MEDIA QUERIES
 
-  @media screen and (min-width: 300px) and (max-width: 550px) {
+  @media screen and (min-width: 300px) and (max-width: 450px) {
     #image-medic {
       position: relative;
-      width: 320px;
+      width: 90%;
       height: 180px;
-      margin-top: 10px;
-      margin-left: 10px;
+      margin: 10px;
     }
 
     #second-container {
@@ -96,7 +95,52 @@ export const ContainerInicial = styled.div`
     }
   }
 
-  @media screen and (min-width: 401px) and (max-width: 780px) {
+  @media screen and (min-width: 451px) and (max-width: 700px) {
+    #image-medic {
+      position: relative;
+      width: 88%;
+      height: 180px;
+      margin-top: 10px;
+      margin-left: 15px;
+    }
+
+    #second-container {
+      margin-top: 20px;
+      display: block;
+
+      #text {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      #text-1 {
+        text-align: left;
+        font-size: 16px;
+      }
+      #text-2 {
+        text-align: left;
+        font-size: 13px;
+        margin-bottom: 15px;
+      }
+    }
+
+    #container-card-and-buttons {
+      max-width: 380px;
+
+      #text-register-pacient {
+      }
+
+      #box-buttonAdd {
+        align-items: center;
+      }
+
+      #refresh-page {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 700px) and (max-width: 780px) {
     #second-container {
       display: block;
 
