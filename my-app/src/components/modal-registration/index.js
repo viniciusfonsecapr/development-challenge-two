@@ -83,11 +83,11 @@ function ModalRegisterPacient() {
             .email(validEmailMsg)
             .required(validEmailMsg),
         name: Yup.string()
-            .required(requiredField).min(4, 'Obrigatório').max(50, 'Maximo de 50 caracteres'),
+            .required(requiredField).min(4, 'Obrigatório').max(30, 'Maximo de 50 caracteres'),
         date_birth: Yup.date()
             .required(requiredField),
         address: Yup.string()
-            .required(requiredField).min(4, 'Obrigatório').max(50, 'Maximo de 50 caracteres'),
+            .required(requiredField).min(10, 'Obrigatório').max(50, 'Maximo de 50 caracteres'),
     });
 
 

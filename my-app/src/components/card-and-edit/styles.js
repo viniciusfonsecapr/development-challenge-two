@@ -20,19 +20,27 @@ margin-bottom: 10px;
     width: 330px;
     height: 300px;
     padding-top: 25px;
-    padding-left: 15px;
+    padding-left: 10px;
     background-color: #fff;
     box-shadow: 0px 40px 160px rgba(55, 76, 108, 0.24);
     border-radius: 12px;
 
+#user-line{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 #card-name{
-    text-align: center;
+    text-align: left;
 } 
 
 .card-infos {
     padding-top: 10px;
+    padding-right:5px;
     font-family: 'roboto';
     font-size: 18px;
+    
 }
 
 }

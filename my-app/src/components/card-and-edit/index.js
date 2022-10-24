@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { api } from '../../services/api'
 import { toast } from 'react-toastify'
 import * as Yup from "yup";
+import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { format } from 'date-fns'
+
 
 import { ContainerBase, ContainerInicial } from './styles'
 import EditIcon from '@mui/icons-material/Edit';
@@ -16,7 +18,8 @@ import Stack from '@mui/material/Stack'
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import CloseIcon from '@mui/icons-material/Close';
-import { useForm } from 'react-hook-form';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 
 const style = {
@@ -67,7 +70,6 @@ const styledInputLabel = {
 function CardAndEdit() {
 
     const [users, setUsers] = useState([])
-
     const [userEdit, setUserEdit] = useState([])
 
     const inputName = useRef()
@@ -79,14 +81,12 @@ function CardAndEdit() {
     const handleOpen = (user) => {
         setOpen(true);
         setUserEdit(user)
-        
+
     }
     const handleClose = () => {
-        setOpen(false); 
+        setOpen(false);
         updateGetPacients()
     }
-
-
 
     const validEmailMsg = 'Campo obrigatório';
     const requiredField = 'Campo obrigatório';
@@ -96,19 +96,16 @@ function CardAndEdit() {
             .email(validEmailMsg)
             .required(validEmailMsg),
         name: Yup.string()
-            .required(requiredField),
+            .required(requiredField).min(4, 'minimo de 4 letras').max(20, 'Maximo de 20 letras'),
         date_birth: Yup.date()
             .required(requiredField),
         address: Yup.string()
-            .required(requiredField),
+            .required(requiredField).min(10, 'Minimo de 10 letras').max(50, 'Maximo de 20 letras'),
     });
 
-
-    const { register, handleSubmit, formState: {errors} } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(validationSchema),
     });
-
-
 
     useEffect(() => {
         api.get('users')
@@ -128,11 +125,10 @@ function CardAndEdit() {
             .then(() => setTimeout(refreshPage, 3000))
     }
 
-    
+
     function refreshPage() {
         window.location.reload();
     }
-
 
     async function deletePacients(id) {
         try {
@@ -150,8 +146,6 @@ function CardAndEdit() {
         }
     }
 
-
-
     const putToSucess = async () => {
 
 
@@ -168,7 +162,7 @@ function CardAndEdit() {
             await api.put(`users`, body)
             toast.success(`Paciente ${body.name} Editado`)
             handleClose()
-           
+
 
         } catch (error) {
             toast.error(`Servidor Offiline`)
@@ -176,15 +170,12 @@ function CardAndEdit() {
 
     }
 
-
     function clickHandler(e) {
         setUserEdit((prevValues) => ({
             ...prevValues,
             [e.target.id]: e.target.value,
         }))
     }
-
-
 
     return (
         <ContainerBase>
@@ -194,11 +185,16 @@ function CardAndEdit() {
                     : (
                         users.map((user, index) => (
                             <div key={index} id="card-style">
+                                <Stack id="user-line">
+                                <AccountCircleIcon color="primary" fontSize="large"></AccountCircleIcon>
                                 <Typography id="card-name" variant="h5" sx={{ fontWeight: 'bold' }} >{user.name}</Typography>
+                                </Stack>
+                                
+                               
                                 <Typography className="card-infos" >Data de Nascimento: {format(new Date(user.date_birth), 'dd/MM/yyyy')} </Typography>
                                 <Typography className="card-infos" >Email: {user.email}</Typography>
                                 <Typography className="card-infos" >Endereço: {user.address}</Typography>
-                                <Box sx={{ display: 'flex', flexDirectionmn: 'row', justifyContent: 'space-evenly', mt: 1 }}>
+                                <Box sx={{ display: 'flex', flexDirectionmn: 'row', justifyContent: 'space-evenly', mt: 2 }}>
                                     <Button onClick={() => handleOpen(user)} sx={{ mr: 1 }}> <EditIcon /></Button>
                                     <Button>
                                         <DeleteIcon onClick={() => deletePacients(user.id)} />
@@ -233,9 +229,9 @@ function CardAndEdit() {
                                     type="text"
                                     {...register("name")}
                                     required
-                                    error={errors.name}
+                                    error={!!errors.name}
                                     sx={styledInputLeft}></OutlinedInput>
-                                <InputLabel htmlFor="component-simple"error={errors.email} type="email" sx={styledInputLabel}>Email *</InputLabel>
+                                <InputLabel htmlFor="component-simple" error={errors.email} type="email" sx={styledInputLabel}>Email *</InputLabel>
                                 <OutlinedInput
                                     type="email" name="email"
                                     onChange={clickHandler}
@@ -243,7 +239,7 @@ function CardAndEdit() {
                                     defaultValue={userEdit.email}
                                     {...register("email")}
                                     required
-                                    error={errors.email}
+                                    error={!!errors.email}
                                     sx={styledInputLeft}></OutlinedInput>
 
                             </Stack>
@@ -256,7 +252,7 @@ function CardAndEdit() {
                                     inputRef={inputAddress}
                                     {...register("address")}
                                     required
-                                    error={errors.address}
+                                    error={!!errors.address}
                                     sx={styledInputRight} placeholder="ex: Jorge Mansos" >
                                 </OutlinedInput>
                                 <InputLabel htmlFor="component-simple" error={errors.date_birth} sx={styledInputLabel}>Data de Nascimento *</InputLabel>
@@ -267,7 +263,7 @@ function CardAndEdit() {
                                     defaultValue={userEdit.date_birth}
                                     {...register("date_birth")}
                                     required
-                                    error={errors.date_birth}
+                                    error={!!errors.date_birth}
                                     sx={styledInputRight}
                                     type='date' ></OutlinedInput>
                             </Stack>
