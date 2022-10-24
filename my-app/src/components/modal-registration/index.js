@@ -23,8 +23,8 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 550,
-    height: 350,
+    width: 400,
+    height: 500,
     bgcolor: 'background.paper',
     boxShadow: '0px 12px 32px rgba(43, 68, 106, 0.12)',
     p: 4,
@@ -83,34 +83,34 @@ function ModalCadastro() {
             .email(validEmailMsg)
             .required(validEmailMsg),
         name: Yup.string()
-            .required(requiredField),
+            .required(requiredField).min(4, 'Obrigatório').max(50, 'Maximo de 50 caracteres'),
         date_birth: Yup.date()
             .required(requiredField),
         address: Yup.string()
-            .required(requiredField),
+            .required(requiredField).min(4, 'Obrigatório').max(50, 'Maximo de 50 caracteres'),
     });
 
-    
 
-   
+
+
     const navigateToSucess = async (body) => {
-        
+
         try {
-            const resp  = await api.post('users', body).then(() => setTimeout(refreshPage, 3000))
+            const resp = await api.post('users', body).then(() => setTimeout(refreshPage, 3000))
             console.log(resp)
-            toast.success(`Paciente ${body.name} cadastrado`) 
+            toast.success(`Paciente ${body.name} cadastrado`)
             handleClose()
-            
+
         } catch (error) {
             toast.error(`Servidor Offiline`)
         }
 
     }
-    
+
     function refreshPage() {
         window.location.reload();
     }
-    
+
 
     return (
         <ContainerInicial>
@@ -140,35 +140,50 @@ function ModalCadastro() {
                                         </Typography>
                                         <Button onClick={handleClose} sx={{ float: 'right', mt: -5 }}><CloseIcon /></Button>
 
-                                        <Stack sx={{ float: 'left' }}>
+                                        <Stack >
                                             <InputLabel htmlFor="component-simple" error={!!errors.name} sx={styledInputLabel} style={{ marginTop: '30px' }}>Nome *</InputLabel>
-                                            <OutlinedInput name="name" onChange={handleChange}
+                                            <OutlinedInput
+                                                name="name"
+                                                onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 error={!!errors.name}
-                                                value={values.name} type="text"
+                                                value={values.name}
+                                                type="text"
                                                 sx={styledInputLeft}></OutlinedInput>
                                             <InputLabel htmlFor="component-simple" error={!!errors.email} type="email" sx={styledInputLabel}>Email *</InputLabel>
-                                            <OutlinedInput type="email" name="email" onChange={handleChange}
+                                            <OutlinedInput
+                                                type="email"
+                                                name="email"
+                                                onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 error={!!errors.email}
-                                                value={values.email} sx={styledInputLeft}></OutlinedInput>
+                                                value={values.email}
+                                                sx={styledInputLeft}></OutlinedInput>
                                         </Stack>
-                                        <Stack sx={{ float: 'right' }}>
+                                        <Stack >
                                             <InputLabel htmlFor="component-simple" error={!!errors.address} sx={styledInputLabelRight} style={{ marginTop: '30px' }}>Endereço *</InputLabel>
-                                            <OutlinedInput name="address" onChange={handleChange}
+                                            <OutlinedInput
+                                                name="address"
+                                                onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 value={values.address}
                                                 error={!!errors.address}
-                                                sx={styledInputRight} placeholder="ex: Rua Jorge Mansos" >
+                                                sx={styledInputRight}
+                                                placeholder="ex: Rua Jorge Mansos" >
                                             </OutlinedInput>
                                             <InputLabel htmlFor="component-simple" error={!!errors.date_birth} sx={styledInputLabel}>Data de Nascimento *</InputLabel>
-                                            <OutlinedInput name="date_birth" onChange={handleChange}
+                                            <OutlinedInput
+                                                name="date_birth"
+                                                onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 error={!!errors.date_birth}
-                                                value={values.date_birth} sx={styledInputRight} type='date' ></OutlinedInput>
+
+                                                value={values.date_birth}
+                                                sx={styledInputRight}
+                                                type='date' ></OutlinedInput>
                                         </Stack>
 
-                                        <Stack sx={{ml:15,pt: 3, width: '250px', height:'50px' }}>
+                                        <Stack sx={{ ml: 6, pt: 3, width: '250px', height: '50px' }}>
                                             <Button
                                                 type="submit" onClick={handleSubmit} variant="contained">Cadastrar
                                             </Button>
