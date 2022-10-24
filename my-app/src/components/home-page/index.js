@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "../header";
 import ModalCadastro from "../modal-registration";
-import CardRegistration from "../card-registration";
+import CardRegistration from "../card-and-edit";
 import Medico from '../../assets/Medico.webp'
 import { ContainerInicial } from './styles'
 import Container from '@mui/material/Container'
