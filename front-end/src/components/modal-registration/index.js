@@ -16,8 +16,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import CloseIcon from '@mui/icons-material/Close';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
-
-
 const style = {
     position: 'absolute',
     top: '50%',
@@ -29,7 +27,6 @@ const style = {
     boxShadow: '0px 12px 32px rgba(43, 68, 106, 0.12)',
     p: 4,
 };
-
 
 const styledInputLabelRight = {
     marginTop: '6px',
@@ -63,7 +60,6 @@ const styledInputLabel = {
 
 function ModalRegisterPacient() {
 
-
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -90,9 +86,6 @@ function ModalRegisterPacient() {
             .required(requiredField).min(10, 'Obrigatório').max(50, 'Maximo de 50 caracteres'),
     });
 
-
-
-
     const navigateToSucess = async (body) => {
 
         try {
@@ -110,7 +103,6 @@ function ModalRegisterPacient() {
     function refreshPage() {
         window.location.reload();
     }
-
 
     return (
         <ContainerInicial>

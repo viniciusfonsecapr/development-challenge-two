@@ -20,8 +20,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import CloseIcon from '@mui/icons-material/Close';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-
-
 const style = {
     position: 'absolute',
     top: '50%',
@@ -34,7 +32,6 @@ const style = {
     p: 4,
 
 };
-
 
 const styledInputLabelRight = {
     marginTop: '6px',

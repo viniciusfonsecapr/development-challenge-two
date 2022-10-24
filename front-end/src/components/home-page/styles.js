@@ -11,11 +11,45 @@ export const ContainerInicial = styled.div`
   width: 100%;
   min-height: 100vh;
 
-  #three-container{
-        display:flex;
-        justify-content:left;
-        flex-direction: column;
-      }
+  #three-container {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
+
+  #container-card-and-buttons {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 15px;
+    border: 0.2px solid rgba(0, 0, 0, 0.15);
+    background: linear-gradient(
+      127.73deg,
+      rgba(244, 245, 255, 0.8) 0%,
+      rgba(247, 247, 255, 0.75) 0.01%,
+      rgba(255, 255, 255, 0.464) 29.92%,
+      rgba(244, 244, 244, 0.736) 59.68%,
+      rgba(225, 226, 238, 0.56) 78.69%,
+      rgba(234, 235, 247, 0) 98.85%
+    );
+
+    #text-register-pacient {
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    #box-buttonAdd {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #refresh-page {
+      display: none;
+    }
+  }
+
+  ///// MEDIA QUERIES
 
   @media screen and (min-width: 300px) and (max-width: 550px) {
     #image-medic {
@@ -23,14 +57,13 @@ export const ContainerInicial = styled.div`
       width: 320px;
       height: 180px;
       margin-top: 10px;
-      margin-left:10px
+      margin-left: 10px;
     }
 
     #second-container {
       margin-top: 20px;
       display: block;
 
-  
       #text {
         font-size: 18px;
         text-align: center;
@@ -64,8 +97,6 @@ export const ContainerInicial = styled.div`
   }
 
   @media screen and (min-width: 401px) and (max-width: 780px) {
- 
-
     #second-container {
       display: block;
 
@@ -86,76 +117,64 @@ export const ContainerInicial = styled.div`
     #image-medic {
       position: relative;
       width: 700px;
-      height:400px;
-      margin:10px;
-      margin-top:20px;
-      
+      height: 400px;
+      margin: 10px;
+      margin-top: 20px;
     }
-
   }
 
   @media screen and (min-width: 781px) and (max-width: 1280px) {
- 
+    #second-container {
+      display: block;
 
- #second-container {
-   display: block;
+      #text {
+        text-align: center;
+      }
 
-   #text {
-     text-align: center;
-   }
+      #text-1 {
+        font-size: 24px;
+        text-align: center;
+      }
+      #text-2 {
+        font-size: 19px;
+        text-align: center;
+      }
+    }
 
-   #text-1 {
-     font-size: 24px;
-     text-align: center;
-   }
-   #text-2 {
-     font-size: 19px;
-     text-align: center;
-   }
- }
+    #image-medic {
+      position: relative;
+      width: 1100px;
+      height: 500px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  }
 
- #image-medic {
-   position: relative;
-   width: 1100px;
-   height:500px;
-   margin:0 auto;
-   margin-top: 20px;
-  
-   
- }
- 
-}
+  @media screen and (min-width: 1281px) and (max-width: 2580px) {
+    #second-container {
+      display: block;
 
-@media screen and (min-width: 1281px) and (max-width: 2580px) {
- 
+      #text {
+        font-size: 35px;
+        text-align: center;
+      }
 
- #second-container {
-   display: block;
+      #text-1 {
+        font-size: 30px;
+        text-align: center;
+      }
+      #text-2 {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
 
-   #text {
-    font-size:35px;
-     text-align: center;
-   }
-
-   #text-1 {
-     font-size: 30px;
-     text-align: center;
-   }
-   #text-2 {
-     font-size: 24px;
-     text-align: center;
-   }
- }
-
- #image-medic {
-   position: relative;
-   width: 1100px;
-   height:600px;
-   margin:0 auto;
-   margin-top: 20px;
-  
-   
- }
- 
-}
+    #image-medic {
+      position: relative;
+      width: 1100px;
+      height: 600px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  }
 `;

@@ -11,16 +11,12 @@ import Typography from '@mui/material/Typography';
 
 function HomePage() {
 
- 
+
     return (
         <ContainerInicial>
             <Header />
             <Container id="second-container">
-                <Box id="three-container" sx={{
-                    display: 'flex',
-                    justifyContent: 'left',
-                    flexDirection: 'column'
-                }}>
+                <Box id="three-container">
                     <Typography id="text" variant="h5" gutterBottom sx={{ mt: 10, color: '#0085FF', fontWeight: 'bold' }}>👉Bem-vindo ao Cadastro Online</Typography>
                     <Typography id="text-1" sx={{ ml: 1, mt: 3, fontSize: 30, color: '#000', fontWeight: 'semibold' }}>
                         Cadastrar seus pacientes nunca
@@ -32,16 +28,9 @@ function HomePage() {
                 </Box>
 
                 <Box>
-                    <Container id="container-card-and-buttons" sx={{
-                        mt: 4,
-                        width: '100%',
-                        minHeight: '100vh',
-                        borderRadius: '15px',
-                        border: '0.2px solid rgba(0, 0, 0, 0.15)',
-                        background: 'linear-gradient(127.73deg, rgba(244, 245, 255, 0.8) 0%, rgba(247, 247, 255, 0.75) 0.01%, rgba(255, 255, 255, 0.464) 29.92%, rgba(244, 244, 244, 0.736) 59.68%, rgba(225, 226, 238, 0.56) 78.69%, rgba(234, 235, 247, 0) 98.85%);'
-                    }}>
-                        <Typography id="text-register-pacient" sx={{ textAlign: 'center', mt: 4, ml: '4%', fontSize: 25, fontWeight: 'bold' }}>Cadastrar Pacientes</Typography>
-                        <Box id="box-buttonAdd" sx={{ display: 'flex', flexDirection: 'row' }}>
+                    <Container id="container-card-and-buttons" sx={{ mt: 4 }}>
+                        <Typography id="text-register-pacient" sx={{ mt: 4, ml: '4%' }}>Cadastrar Pacientes</Typography>
+                        <Box id="box-buttonAdd">
                             <ModalRegisterPacient></ModalRegisterPacient>
                         </Box>
                         <Box id="card-pacients">
