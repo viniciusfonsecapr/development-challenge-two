@@ -195,6 +195,7 @@ export const ContainerInicial = styled.div`
 
       #refresh-page {
         display: none;
+        
       }
     }
   }
