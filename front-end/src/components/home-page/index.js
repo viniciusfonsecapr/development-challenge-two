@@ -9,7 +9,7 @@ import Container from '@mui/material/Container'
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Refresh } from "@mui/icons-material";
+import { RefreshOutlined } from "@mui/icons-material";
 
 function HomePage() {
 
@@ -38,7 +38,7 @@ function HomePage() {
                         <Typography id="text-register-pacient" sx={{ mt: 4, ml: '4%' }}>Cadastrar Pacientes</Typography>
                         <Box id="box-buttonAdd">
                             <ModalRegisterPacient></ModalRegisterPacient>
-                            <Button id="refresh-page" sx={{marginTop:'30px'}} onClick={refreshPage}><Refresh></Refresh></Button>
+                            <Button id="refresh-page" sx={{marginTop:'30px'}} onClick={refreshPage}><RefreshOutlined></RefreshOutlined></Button>
                         </Box>
                         <Box id="card-pacients">
                             <CardAndEdit />
