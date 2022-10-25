@@ -100,7 +100,6 @@ function ModalRegisterPacient() {
 
     }
 
-
     return (
         <ContainerInicial>
             <Stack sx={{ display: 'flex', mt: 5  }}>

@@ -17,6 +17,7 @@ function HomePage() {
         window.location.reload();
     }
 
+
     return (
         <ContainerInicial>
             <Header />
@@ -37,7 +38,7 @@ function HomePage() {
                         <Typography id="text-register-pacient" sx={{ mt: 4, ml: '4%' }}>Cadastrar Pacientes</Typography>
                         <Box id="box-buttonAdd">
                             <ModalRegisterPacient></ModalRegisterPacient>
-                            <Button sx={{marginTop:'30px'}} onClick={refreshPage}><Refresh></Refresh></Button>
+                            <Button id="refresh-page" sx={{marginTop:'30px'}} onClick={refreshPage}><Refresh></Refresh></Button>
                         </Box>
                         <Box id="card-pacients">
                             <CardAndEdit />
