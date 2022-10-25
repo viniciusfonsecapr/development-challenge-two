@@ -11,8 +11,31 @@ export const Container = styled.div`
     margin-top: -10px;
   }
 
-  @media screen and (min-width: 330px) and (max-width: 520px) {
-    width: 400px;
+  @media screen and (min-width: 230px) and (max-width: 520px) {
+    width: 100%;
+
+    #home {
+      display: none;
+    }
+    #about {
+      display: none;
+    }
+    #button:hover {
+      background-color: #0e20bb;
+    }
+
+    #button {
+      margin-left: -70px;
+      margin-top: -10px;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+
+  @media screen and (min-width: 310px) and (max-width: 520px) {
+    width: 100%;
 
     #home {
       display: none;

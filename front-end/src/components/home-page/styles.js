@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const ContainerInicial = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: linear-gradient(
     178.65deg,
     #ffffff 23.28%,
     rgba(0, 99, 248, 0.37) 97.58%
   );
-  width: 100%;
-  min-height: 100vh;
+  width: 1000px;
+  height: 100%;
 
   #three-container {
     display: flex;
@@ -41,17 +41,21 @@ export const ContainerInicial = styled.div`
     #box-buttonAdd {
       display: flex;
       flex-direction: row;
-      align-items: center;
-    }
-
-    #refresh-page {
-      display: none;
+      align-items: left;
     }
   }
 
   ///// MEDIA QUERIES
 
-  @media screen and (min-width: 300px) and (max-width: 450px) {
+  @media screen and (max-width:320px) {
+    background: linear-gradient(
+    178.65deg,
+    #ffffff 13.28%,
+    rgba(0, 99, 248, 0.37) 97.58%
+  );
+  width: 310px;
+
+
     #image-medic {
       position: relative;
       width: 90%;
@@ -80,7 +84,7 @@ export const ContainerInicial = styled.div`
     }
 
     #container-card-and-buttons {
-      max-width: 380px;
+      width: 90%;
 
       #text-register-pacient {
       }
@@ -95,7 +99,62 @@ export const ContainerInicial = styled.div`
     }
   }
 
-  @media screen and (min-width: 451px) and (max-width: 700px) {
+  @media screen and (min-width:310px) and (max-width: 420px) {
+    background: linear-gradient(
+    178.65deg,
+    #ffffff 13.28%,
+    rgba(0, 99, 248, 0.37) 97.58%
+  );
+  width: 100%;
+
+    #image-medic {
+      position: relative;
+      width: 90%;
+      height: 180px;
+      margin: 10px;
+    }
+
+    #second-container {
+      margin-top: 20px;
+      display: block;
+
+      #text {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      #text-1 {
+        text-align: left;
+        font-size: 16px;
+      }
+      #text-2 {
+        text-align: left;
+        font-size: 13px;
+        margin-bottom: 15px;
+      }
+    }
+
+    #container-card-and-buttons {
+      width: 90%;
+
+      #text-register-pacient {
+      }
+
+      #box-buttonAdd {
+        align-items: center;
+        width: 90%;
+      }
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+    background: linear-gradient(
+    178.65deg,
+    #ffffff 13.28%,
+    rgba(0, 99, 248, 0.37) 97.58%
+  );
+    width: 100%;
+ 
     #image-medic {
       position: relative;
       width: 88%;
@@ -125,7 +184,7 @@ export const ContainerInicial = styled.div`
     }
 
     #container-card-and-buttons {
-      max-width: 380px;
+      width: 90%;
 
       #text-register-pacient {
       }
@@ -140,7 +199,7 @@ export const ContainerInicial = styled.div`
     }
   }
 
-  @media screen and (min-width: 700px) and (max-width: 780px) {
+  @media screen and (min-width: 780px) and (max-width: 980px) {
     #second-container {
       display: block;
 

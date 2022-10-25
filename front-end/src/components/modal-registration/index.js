@@ -106,7 +106,7 @@ function ModalRegisterPacient() {
 
     return (
         <ContainerInicial>
-            <Stack sx={{ display: 'flex', mt: 5, width: '200px' }}>
+            <Stack sx={{ display: 'flex', mt: 5  }}>
                 <Formik initialValues={initialSucessState} onSubmit={navigateToSucess} validationSchema={validationSchema}>
                     {({
                         values,
@@ -118,7 +118,7 @@ function ModalRegisterPacient() {
                     }) => (
                         <>
                             <form>
-                                <Button onClick={handleOpen} sx={{ border: '1px solid ', width: '300px', borderRadius: '10px', background: 'white' }}><HowToRegIcon sx={{ mr: 3 }} /> Cadastrar</Button>
+                                <Button onClick={handleOpen} sx={{ border: '1px solid ', width: '280px', borderRadius: '10px', background: 'white' }}><HowToRegIcon sx={{ mr: 5 }} /> Cadastrar</Button>
                                 <Modal
                                     open={open}
                                     onClose={handleClose}
