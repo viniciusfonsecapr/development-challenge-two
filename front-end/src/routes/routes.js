@@ -4,9 +4,6 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
-
-// import Login from "../containers/Login";
-// import Register from "../containers/Register";
 import Home from "../containers/Home";
 
 function Rotas() {
@@ -24,8 +21,6 @@ function Rotas() {
         />
         <Routes>
           <Route element={<Home />} path="/"></Route>
-          {/* <Route element={<Login/>} path="/login"></Route>
-        <Route element={<Register/>} path="/register"></Route> */}
         </Routes>
     </BrowserRouter>
   );
