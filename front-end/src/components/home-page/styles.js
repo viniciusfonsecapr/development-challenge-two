@@ -142,7 +142,7 @@ export const ContainerInicial = styled.div`
 
       #box-buttonAdd {
         align-items: center;
-        width: 90%;
+        
       }
     }
   }

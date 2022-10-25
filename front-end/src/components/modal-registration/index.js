@@ -89,7 +89,7 @@ function ModalRegisterPacient() {
     const navigateToSucess = async (body) => {
 
         try {
-            const resp = await api.post('users', body).then(() => setTimeout(refreshPage, 3000))
+            const resp = await api.post('users', body)
             console.log(resp)
             toast.success(`Paciente ${body.name} cadastrado`)
             handleClose()
@@ -100,9 +100,6 @@ function ModalRegisterPacient() {
 
     }
 
-    function refreshPage() {
-        window.location.reload();
-    }
 
     return (
         <ContainerInicial>
@@ -118,7 +115,7 @@ function ModalRegisterPacient() {
                     }) => (
                         <>
                             <form>
-                                <Button onClick={handleOpen} sx={{ border: '1px solid ', width: '280px', borderRadius: '10px', background: 'white' }}><HowToRegIcon sx={{ mr: 5 }} /> Cadastrar</Button>
+                                <Button onClick={handleOpen} sx={{ border: '1px solid ', width: '250px', borderRadius: '10px', background: 'white' }}><HowToRegIcon sx={{ mr: 5 }} /> Cadastrar</Button>
                                 <Modal
                                     open={open}
                                     onClose={handleClose}
